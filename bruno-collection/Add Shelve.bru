@@ -1,0 +1,17 @@
+meta {
+  name: Add Shelve
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/shelves
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Shelve - 1"
+  }
+}
