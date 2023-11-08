@@ -1,3 +1,3 @@
 class Request:
-  def get(self, atributeName: str):
-    return self[atributeName]
+    def get(self, atributeName: str):
+        return self[atributeName]

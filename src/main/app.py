@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 #! Shelve Routes
 
-@app.route('/shelves', methods=['POST'])
+
+@app.route("/shelves", methods=["POST"])
 def AddShelve():
-  return AdaptControllerToFlask(makeAddShelveController(), request)
+    return AdaptControllerToFlask(makeAddShelveController(), request)
