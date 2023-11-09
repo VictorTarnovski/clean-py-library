@@ -2,8 +2,9 @@ from ..models.shelve import Shelve
 
 
 class AddShelveParams:
+    name: str
     def __init__(self, name: str):
-        self.name = name
+        pass
 
 
 class AddShelve:
