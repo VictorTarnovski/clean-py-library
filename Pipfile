@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+sqlalchemy = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
+
+[scripts]
+start = """PowerShell.exe -Command "pipenv run up; python main.py" """
+up = "docker compose up -d"
+down = "docker compose down"
