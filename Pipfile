@@ -10,7 +10,7 @@ sqlalchemy = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.11"
+python_version = "3"
 
 [scripts]
 start = """PowerShell.exe -Command "pipenv run up; python main.py" """
