@@ -4,11 +4,11 @@ from ..exceptions.field_not_found_exception import FieldNotFoundException
 
 
 class RequiredFieldValidation(Validation):
-    def __init__(self, fieldName: str):
-        self.fieldName = fieldName
+    def __init__(self, field_name: str):
+        self.field_name = field_name
 
     def validate(self, request: Request) -> None:
-        if request.get(self.fieldName) is None:
-            raise FieldNotFoundException(self.fieldName)
+        if request.get(self.field_name) is None:
+            raise FieldNotFoundException(self.field_name)
         else:
             return None
