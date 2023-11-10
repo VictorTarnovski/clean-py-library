@@ -1,7 +1,7 @@
 from ....data.protocols.add_shelve_repository import AddShelveRepository
 from ....domain.use_cases.add_shelve import Shelve, AddShelveParams
 from ....domain.models.shelve import Shelve
-from .psycopg2_helper import SQLQueryBuilder
+from .sql_query_builder import SQLQueryBuilder
 
 
 class PGShelveRepository(AddShelveRepository):
