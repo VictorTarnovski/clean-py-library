@@ -1,7 +1,7 @@
 from ..protocols.http_request import Request
 from ..protocols.controller import Controller
 from ..protocols.validation import Validation
-from ..helpers.http import BadRequest, OK
+from ..helpers.http import BadRequest, OK, ServerError
 from ...domain.use_cases.add_shelve import AddShelve
 
 
@@ -18,9 +18,12 @@ class AddShelveController(Controller):
 
     def handle(self, request: AddShelveRequest):
         try:
-            self._validation.validate(request)
-        except Exception as exception:
-            return BadRequest(exception)
+            try:
+                self._validation.validate(request)
+            except Exception as exception:
+                return BadRequest(exception)
 
-        shelve = self._add_shelve.add(request)
-        return OK(shelve)
+            shelve = self._add_shelve.add(request)
+            return OK(shelve)
+        except:
+            return ServerError()
