@@ -1,0 +1,17 @@
+meta {
+  name: Add Book
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/books
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "The art of war"
+  }
+}

@@ -131,7 +131,6 @@ class SQLQueryBuilder:
     def data_type_format(self, value, quote_strings=True) -> str:
         if type(value) == str and quote_strings:
             return f"'{value}'"
-
         else:
             return f"{value}"
 
