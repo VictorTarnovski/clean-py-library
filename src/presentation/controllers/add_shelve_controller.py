@@ -25,5 +25,5 @@ class AddShelveController(Controller):
 
             shelve = self._add_shelve.add(request)
             return OK(shelve)
-        except:
-            return ServerError()
+        except Exception as exception:
+            return ServerError(exception)
