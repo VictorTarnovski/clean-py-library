@@ -1,7 +1,7 @@
 from ..protocols.http_request import Request
 from ..protocols.controller import Controller
 from ..protocols.validation import Validation
-from ..helpers.http import BadRequest, OK, ServerError
+from ..helpers.http import BadRequest, OK
 from ...domain.use_cases.add_book import AddBook
 
 
@@ -18,13 +18,9 @@ class AddBookController(Controller):
 
     def handle(self, request: AddBookRequest):
         try:
-            try:
-                self._validation.validate(request)
-            except Exception as exception:
-                return BadRequest(exception)
-
-            book = self._add_book.add(request)
-            return OK(book)
+            self._validation.validate(request)
         except Exception as exception:
-            print(exception)
-            return ServerError(exception)
+            return BadRequest(exception)
+        
+        book = self._add_book.add(request)
+        return OK(book)

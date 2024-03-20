@@ -1,1 +1,2 @@
+from .internal_server_error_exception import InternalServerErrorExeception
 from .field_not_found_exception import FieldNotFoundException

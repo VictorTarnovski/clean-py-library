@@ -1,3 +1,4 @@
+from typing import Any
 import psycopg2
 
 
@@ -17,7 +18,7 @@ class SQLQueryBuilder:
 
         self._where_list: list[str] = []
 
-        self._values: list[list[str]] = []
+        self._values: list[list] = []
 
         self._returnings: list[list[str]] = []
 
@@ -98,7 +99,7 @@ class SQLQueryBuilder:
 
         return fields
 
-    def values(self, values: list[str]):
+    def values(self, values: list):
         self._values.append(values)
         return self
 
@@ -186,7 +187,7 @@ class SQLQueryBuilder:
 
         return self._raw_query
 
-    def execute(self):
+    def execute(self) -> Any | list[Any]:
         executionResults = []
 
         self.mount_query()
